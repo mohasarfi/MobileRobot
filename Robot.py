@@ -28,6 +28,12 @@ class Diif_Robot:
         phi_dot_r = self.r*v/2 + self.L*omega/2
         return np.array([phi_dot_r,phi_dot_l])
     
+    def motion_model(self, u, dt):
+        v = u[0]
+        omega = u[1]
+        phi_dot = self.get_angular_velocity(v,omega)
+        return self.forward_kinematics(phi_dot[0],phi_dot[1],dt)
+    
   
 
 

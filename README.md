@@ -1,6 +1,8 @@
 # MobileRobot
 This repository contains the 2D simulation environment of a mobile robot.
 
+It's all about Visualization. The main purpose is to make the complex concepts of mobile robot navigation and control easier to understand through detailed explanations and examples. 
+
 It should contain the following files:
 - env_generator.py # Generates the environment including static and dynamic obstacles
 - robot.py # The kinematic model of the robot(s)
