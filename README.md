@@ -8,7 +8,7 @@ It should contain the following files:
 - Localization.py # The localization model based on EKF, UKF, and Particle Filter
 - mapping.py # The mapping model. Ideally, it should be SLAM
 - MotionPlanning.py # The motion planning model. It should include the path planning and trajectory planning
-- control.py # The control model. It should include the PID controller, MPC, and LQR
+- control.py # The control model. It should include the PID controller, MPC, and LQR. Consider Integral Backstepping 
 - Exploration.py # The exploration model. It should include the frontier-based exploration and information gain-based exploration
 - TaskAllocation.py # The task allocation model. It should include the auction-based task allocation and the market-based task allocation
 - main.py # The main file that runs the simulation
