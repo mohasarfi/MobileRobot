@@ -16,6 +16,7 @@ class Diif_Robot:
         self.x += state[0]
         self.y += state[1]
         self.theta += state[2]
+        self.theta = np.arctan2(np.sin(self.theta),np.cos(self.theta))
 
 
         return np.array([self.y,self.x,self.theta])
