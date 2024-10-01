@@ -1,25 +1,25 @@
 import numpy as np 
 class Diif_Robot:
 
-    def __init__(self,r,L,x_0 = 0 ,y_0=0 ,theta_0=0):
+    def __init__(self,r,L,robot_state):
         self.r = r
         self.L = L
-        self.x = x_0
-        self.y = y_0
-        self.theta = theta_0
+        self.y = robot_state[0]
+        self.x = robot_state[1] 
+        self.theta = robot_state[2]
+        
 
     def forward_kinematics(self,phi_dot_r,phi_dot_l,dt):
         
-        J = np.array([[self.r/2*np.cos(self.theta),self.r/2*np.cos(self.theta)],[self.r/2*np.sin(self.theta),self.r/2*np.sin(self.theta)],[self.r/(2*self.L),-self.r/(2*self.L)]])
+        J = np.array([[(self.r/2)*np.sin(self.theta),(self.r/2)*np.sin(self.theta)],[(self.r/2)*np.cos(self.theta),(self.r/2)*np.cos(self.theta)],[self.r/(self.L),-self.r/(self.L)]])
         phi_dot = np.array([phi_dot_r,phi_dot_l])
         state = np.matmul(J,phi_dot)*dt
-        self.x += state[0]
-        self.y += state[1]
+        self.y += state[0]
+        self.x += state[1]
         self.theta += state[2]
-        self.theta = np.arctan2(np.sin(self.theta),np.cos(self.theta))
-
 
         return np.array([self.y,self.x,self.theta])
+    
     
     def get_state(self):
         return np.array([self.y,self.x,self.theta])
